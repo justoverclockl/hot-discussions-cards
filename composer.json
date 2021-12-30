@@ -1,0 +1,38 @@
+{
+    "name": "justoverclock/hot-discussions-cards",
+    "description": "Show 4 cards with hot discussions preview",
+    "keywords": [
+        "flarum"
+    ],
+    "type": "flarum-extension",
+    "license": "MIT",
+    "require": {
+        "flarum/core": "^1.0.0"
+    },
+    "require-dev": {
+        "flarum/testing": "^1.0.0"
+    },
+    "authors": [
+        {
+            "name": "Marco Colia",
+            "email": "info@flarum.it",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Justoverclock\\HotDiscussionCards\\": "src/"
+        }
+    },
+    "extra": {
+        "flarum-extension": {
+            "title": "Hot Cards",
+            "category": "",
+            "icon": {
+                "name": "",
+                "backgroundColor": "",
+                "color": ""
+            }
+        }
+    }
+}
