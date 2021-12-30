@@ -157,6 +157,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var flarum_forum_app__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(flarum_forum_app__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var flarum_common_Component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! flarum/common/Component */ "flarum/common/Component");
 /* harmony import */ var flarum_common_Component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(flarum_common_Component__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var flarum_common_components_Link__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! flarum/common/components/Link */ "flarum/common/components/Link");
+/* harmony import */ var flarum_common_components_Link__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(flarum_common_components_Link__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var flarum_common_helpers_avatar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! flarum/common/helpers/avatar */ "flarum/common/helpers/avatar");
+/* harmony import */ var flarum_common_helpers_avatar__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(flarum_common_helpers_avatar__WEBPACK_IMPORTED_MODULE_4__);
+
+
 
 
 
@@ -189,7 +195,7 @@ var AddCardsToHero = /*#__PURE__*/function (_Component) {
       page: {
         limit: limitHotDisc
       },
-      include: 'firstPost'
+      include: 'firstPost,user'
     }).then(function (results) {
       _this.discPreview = results;
       _this.loading = false;
@@ -203,13 +209,18 @@ var AddCardsToHero = /*#__PURE__*/function (_Component) {
     }, m("section", {
       className: "cards-wrapper"
     }, this.discPreview && this.discPreview.map(function (prevDisc) {
+      console.log(prevDisc.user());
       return m("div", {
         className: "card-grid-space"
-      }, m("a", {
+      }, m(flarum_common_components_Link__WEBPACK_IMPORTED_MODULE_3___default.a, {
         className: "card",
-        href: "https://codetheweb.blog/2017/10/06/html-syntax/",
-        style: "--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)"
-      }, m("div", null, m("h5", null, prevDisc.title()), m("p", null, prevDisc.firstPost()))));
+        href: flarum_forum_app__WEBPACK_IMPORTED_MODULE_1___default.a.route.discussion(prevDisc)
+      }, m("div", {
+        className: "avatarDisplay"
+      }, flarum_common_helpers_avatar__WEBPACK_IMPORTED_MODULE_4___default()(prevDisc.user(), {
+        title: '',
+        className: 'lastPostedUserAvatartwo'
+      })), m("div", null, m("h5", null, prevDisc.title()), m("p", null, prevDisc.firstPost().contentHtml().replace(/<\/?[^>]+(>|$)/g, "").substr(0, 80) + "..."))));
     })));
   };
 
@@ -259,6 +270,17 @@ module.exports = flarum.core.compat['common/Component'];
 
 /***/ }),
 
+/***/ "flarum/common/components/Link":
+/*!***************************************************************!*\
+  !*** external "flarum.core.compat['common/components/Link']" ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['common/components/Link'];
+
+/***/ }),
+
 /***/ "flarum/common/extend":
 /*!******************************************************!*\
   !*** external "flarum.core.compat['common/extend']" ***!
@@ -267,6 +289,17 @@ module.exports = flarum.core.compat['common/Component'];
 /***/ (function(module, exports) {
 
 module.exports = flarum.core.compat['common/extend'];
+
+/***/ }),
+
+/***/ "flarum/common/helpers/avatar":
+/*!**************************************************************!*\
+  !*** external "flarum.core.compat['common/helpers/avatar']" ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = flarum.core.compat['common/helpers/avatar'];
 
 /***/ }),
 

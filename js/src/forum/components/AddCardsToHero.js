@@ -1,5 +1,7 @@
 import app from 'flarum/forum/app'
 import Component from 'flarum/common/Component';
+import Link from "flarum/common/components/Link";
+import avatar from 'flarum/common/helpers/avatar';
 
 export default class AddCardsToHero extends Component {
 
@@ -18,7 +20,7 @@ export default class AddCardsToHero extends Component {
       .find('discussions', {
         sort: '-commentCount',
         page: { limit: limitHotDisc },
-        include: 'firstPost'
+        include: 'firstPost,user'
       })
       .then((results) => {
         this.discPreview = results;
@@ -32,15 +34,16 @@ export default class AddCardsToHero extends Component {
       <div className="cardContainer">
         <section className="cards-wrapper">
           {this.discPreview && this.discPreview.map((prevDisc) => {
+            console.log(prevDisc.user())
             return (
               <div className="card-grid-space">
-                <a className="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"
-                   style="--bg-img: url(https://images1-focus-opensocial.googleusercontent.com/gadgets/proxy?container=focus&resize_w=1500&url=https://codetheweb.blog/assets/img/posts/html-syntax/cover.jpg)">
+                <Link className="card" href={app.route.discussion(prevDisc)}>
+                  <div className="avatarDisplay">{avatar(prevDisc.user(), { title: '', className: 'lastPostedUserAvatartwo' })}</div>
                   <div>
                     <h5>{prevDisc.title()}</h5>
-                    <p>{prevDisc.firstPost()}</p>
+                    <p>{prevDisc.firstPost().contentHtml().replace(/<\/?[^>]+(>|$)/g, "").substr(0, 80) + "..."}</p>
                   </div>
-                </a>
+                </Link>
               </div>
             );
           })}
