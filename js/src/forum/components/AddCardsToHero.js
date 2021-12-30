@@ -32,7 +32,6 @@ export default class AddCardsToHero extends Component {
       <div className="cardContainer">
         <section className="cards-wrapper">
           {this.discPreview && this.discPreview.map((prevDisc) => {
-            {console.log(prevDisc)}
             return (
               <div className="card-grid-space">
                 <a className="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"

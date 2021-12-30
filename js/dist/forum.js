@@ -91,7 +91,7 @@ module.exports =
 /*!******************!*\
   !*** ./forum.js ***!
   \******************/
-/*! no static exports found */
+/*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -203,9 +203,6 @@ var AddCardsToHero = /*#__PURE__*/function (_Component) {
     }, m("section", {
       className: "cards-wrapper"
     }, this.discPreview && this.discPreview.map(function (prevDisc) {
-      {
-        console.log(prevDisc);
-      }
       return m("div", {
         className: "card-grid-space"
       }, m("a", {
