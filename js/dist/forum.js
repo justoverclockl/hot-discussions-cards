@@ -209,18 +209,28 @@ var AddCardsToHero = /*#__PURE__*/function (_Component) {
     }, m("section", {
       className: "cards-wrapper"
     }, this.discPreview && this.discPreview.map(function (prevDisc) {
-      console.log(prevDisc.user());
+      console.log(prevDisc);
       return m("div", {
         className: "card-grid-space"
       }, m(flarum_common_components_Link__WEBPACK_IMPORTED_MODULE_3___default.a, {
         className: "card",
         href: flarum_forum_app__WEBPACK_IMPORTED_MODULE_1___default.a.route.discussion(prevDisc)
       }, m("div", {
+        className: "arrow-right"
+      }, m("span", null, "HOT!")), m("div", {
         className: "avatarDisplay"
       }, flarum_common_helpers_avatar__WEBPACK_IMPORTED_MODULE_4___default()(prevDisc.user(), {
-        title: '',
+        title: prevDisc.user().displayName(),
         className: 'lastPostedUserAvatartwo'
-      })), m("div", null, m("h5", null, prevDisc.title()), m("p", null, prevDisc.firstPost().contentHtml().replace(/<\/?[^>]+(>|$)/g, "").substr(0, 80) + "..."))));
+      }), m("div", {
+        className: "postInfoCard"
+      }, prevDisc.lastPostNumber()), m("div", {
+        className: "postInfoCard text"
+      }, "POSTS")), m("div", null, m("h5", {
+        className: "discTitleCard"
+      }, prevDisc.title()), m("p", {
+        className: "discPcard"
+      }, prevDisc.firstPost().contentHtml().replace(/<\/?[^>]+(>|$)/g, '').substr(0, 110) + '...'))));
     })));
   };
 
