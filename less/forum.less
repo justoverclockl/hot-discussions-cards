@@ -1,7 +1,6 @@
 
 :root {
   --color: #3c3163;
-  --transition-time: 0.5s;
 }
 .postInfoCard {
   text-align: center;
@@ -204,7 +203,8 @@ img.Avatar.lastPostedUserAvatartwo {
 
 @media screen and (max-width: 500px) {
   .cards-wrapper {
-    padding: 4rem 2rem;
+    display: block;
+    padding: 2rem 1rem;
   }
   .card {
     max-width: calc(100vw - 4rem);
@@ -218,5 +218,38 @@ img.Avatar.lastPostedUserAvatartwo {
   }
   .info h1 {
     margin: 0;
+  }
+}
+@media screen and (max-width: 1285px) {
+  .cards-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media screen and (max-width: 1099px) {
+  .cards-wrapper {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .cards-wrapper {
+   display: none;
+  }
+}
+body when (@config-dark-mode =true) {
+  .card:after {
+    background: #14191f;
+  }
+  .card:hover {
+    color: #fff;
+  }
+  .card:hover .tags .tag {
+    color: #fff;
+  }
+  .card {
+    color: #838587;
+  }
+  .arrow-right {
+    background-color: #1b2028;
+    box-shadow: 0 0 3px 2px #4d698e;
   }
 }
