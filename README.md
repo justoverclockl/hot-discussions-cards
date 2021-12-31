@@ -19,12 +19,11 @@ composer require justoverclock/hot-discussion-cards:"*"
 
 ```sh
 composer update justoverclock/hot-discussion-cards:"*"
-php flarum migrate
 php flarum cache:clear
 ```
 
 ## Links
 
 - [Packagist](https://packagist.org/packages/justoverclock/hot-discussion-cards)
-- [GitHub](https://github.com/justoverclock/hot-discussion-cards)
-- [Discuss](https://discuss.flarum.org/d/PUT_DISCUSS_SLUG_HERE)
+- [GitHub](https://github.com/justoverclockl/hot-discussion-cards)
+
