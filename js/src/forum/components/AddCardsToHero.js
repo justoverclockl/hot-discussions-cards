@@ -34,7 +34,6 @@ export default class AddCardsToHero extends Component {
         <section className="cards-wrapper">
           {this.discPreview &&
             this.discPreview.map((prevDisc) => {
-              console.log(prevDisc);
               return (
                 <div className="card-grid-space">
                   <Link className="card" href={app.route.discussion(prevDisc)}>
