@@ -18,13 +18,12 @@ export default class AddCardsToHero extends Component {
 
     app.store
       .find('discussions', {
-        sort: '-commentCount',
+        sort: '-lastPostedAt',
         page: { limit: limitHotDisc },
         include: 'firstPost,user,tags',
       })
       .then((results) => {
         this.discPreview = results;
-        console.log(results)
         this.loading = false;
         m.redraw();
       });
