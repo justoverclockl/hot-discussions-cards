@@ -2,6 +2,7 @@ import app from 'flarum/forum/app';
 import Component from 'flarum/common/Component';
 import Link from 'flarum/common/components/Link';
 import avatar from 'flarum/common/helpers/avatar';
+import tagsLabel from 'flarum/tags/helpers/tagsLabel';
 
 export default class AddCardsToHero extends Component {
   oninit(vnode) {
@@ -14,15 +15,16 @@ export default class AddCardsToHero extends Component {
     super.oncreate(vnode);
 
     const limitHotDisc = 3;
-    // get discussions object
+
     app.store
       .find('discussions', {
         sort: '-commentCount',
         page: { limit: limitHotDisc },
-        include: 'firstPost,user',
+        include: 'firstPost,user,tags',
       })
       .then((results) => {
         this.discPreview = results;
+        console.log(results)
         this.loading = false;
         m.redraw();
       });
@@ -38,7 +40,7 @@ export default class AddCardsToHero extends Component {
                 <div className="card-grid-space">
                   <Link className="card" href={app.route.discussion(prevDisc)}>
                     <div className="arrow-right">
-                      <span>HOT!</span>
+                      <span>{app.translator.trans('justoverclock-hot-discussion-cards.forum.hot')}</span>
                     </div>
                     <div className="avatarDisplay">
                       {avatar(prevDisc.user(), {
@@ -46,17 +48,19 @@ export default class AddCardsToHero extends Component {
                         className: 'lastPostedUserAvatartwo',
                       })}
                       <div className="postInfoCard">{prevDisc.lastPostNumber()}</div>
-                      <div className="postInfoCard text">POSTS</div>
+                      <div className="postInfoCard text">{app.translator.trans('justoverclock-hot-discussion-cards.forum.post')}</div>
                     </div>
                     <div>
                       <h5 className="discTitleCard">{prevDisc.title()}</h5>
                       <p className="discPcard">
-                        {prevDisc
-                          .firstPost()
-                          .contentHtml()
+                        {prevDisc.firstPost().contentHtml()
                           .replace(/<\/?[^>]+(>|$)/g, '')
                           .substr(0, 110) + '...'}
                       </p>
+                      <div className="tagsna">{tagsLabel(prevDisc.tags(), {
+                        link: true,
+                        className: 'mytagLabel',
+                      })}</div>
                     </div>
                   </Link>
                 </div>
