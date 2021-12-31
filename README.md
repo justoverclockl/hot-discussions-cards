@@ -4,7 +4,8 @@
 
 A [Flarum](http://flarum.org) extension. Show 3 cards with hot discussions preview
 
-![Immagine 2021-12-31 010350](https://user-images.githubusercontent.com/79002016/147795411-e34ad1db-709b-452f-bf57-1d65dc085ebd.png)
+
+![Immagine 2021-12-31 111556](https://user-images.githubusercontent.com/79002016/147817681-b9e2c7f8-54a2-49be-b8c5-732b6620d2fd.png)
 
 
 ## Installation
