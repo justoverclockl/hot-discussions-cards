@@ -13,13 +13,13 @@ A [Flarum](http://flarum.org) extension. Show 3 cards with hot discussions previ
 Install with composer:
 
 ```sh
-composer require justoverclock/hot-discussion-cards:"*"
+composer require justoverclock/hot-discussions-cards:"*"
 ```
 
 ## Updating
 
 ```sh
-composer update justoverclock/hot-discussion-cards:"*"
+composer update justoverclock/hot-discussions-cards:"*"
 php flarum cache:clear
 ```
 
