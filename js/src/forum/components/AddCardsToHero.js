@@ -18,7 +18,7 @@ export default class AddCardsToHero extends Component {
 
     app.store
       .find('discussions', {
-        sort: '-lastPostedAt',
+        sort: '-createdAt',
         page: { limit: limitHotDisc },
         include: 'firstPost,user,tags',
       })
@@ -46,8 +46,8 @@ export default class AddCardsToHero extends Component {
                         title: prevDisc.user().displayName(),
                         className: 'lastPostedUserAvatartwo',
                       })}
-                      <div className="postInfoCard">{prevDisc.lastPostNumber()}</div>
-                      <div className="postInfoCard text">{app.translator.trans('justoverclock-hot-discussion-cards.forum.post')}</div>
+                      <div className="postInfoCard">{prevDisc.commentCount()}</div>
+                      <div className="postInfoCard text">{app.translator.trans('justoverclock-hot-discussion-cards.forum.post', {count: prevDisc.commentCount()})}</div>
                     </div>
                     <div>
                       <h5 className="discTitleCard">{prevDisc.title()}</h5>
