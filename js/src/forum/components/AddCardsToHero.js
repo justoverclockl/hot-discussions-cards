@@ -18,7 +18,7 @@ export default class AddCardsToHero extends Component {
 
     app.store
       .find('discussions', {
-        sort: '-createdAt',
+        sort: '-commentCount',
         page: { limit: limitHotDisc },
         include: 'firstPost,user,tags',
       })
